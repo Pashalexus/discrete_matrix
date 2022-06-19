@@ -1,2 +1,2 @@
-# ivt_sapr_vs_2022
+# Computing and Discrete Maths
 My projects on Pascal
