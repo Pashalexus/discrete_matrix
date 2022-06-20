@@ -17,7 +17,7 @@ begin
   var k: byte:=1; // номер столбца матрицы инцидентности
   for var i: integer:=1 to 7 do
     for var j: integer:=1 to 7 do
-    begin // вычисление матрицы смежности
+    begin // вычисление матрицы инцидентности
       if c[i,j] and (i=j) then
       begin // петли
         d[i,k]:=2;
@@ -39,7 +39,7 @@ begin
   for var i: integer:=1 to 7 do
   begin
     for var j: integer:=1 to 14 do
-    begin // печать матрицы смежности
+    begin // печать матрицы инцидентности
       if d[i,j]>=0 then write(' ');
       print(d[i,j]);
     end;
@@ -52,7 +52,7 @@ begin
   for var i:Integer:=1 to 7 do
     for var j:Integer:=1 to 7 do
       for k:=1 to 14 do
-      begin // вычисление матрицы инцидентности
+      begin // перевычисление матрицы смежности
         if (d[i,k]=2) then // петли
           c[i,i]:=True
         else if (d[i,k]=1) and (d[j,k]=1) and (i<>j) then // рёбра
