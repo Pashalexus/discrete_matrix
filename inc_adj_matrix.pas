@@ -6,17 +6,17 @@ begin
   println('                                Кафедра САПР ВС                                ');
   println('                                  Рязань 2022                                  ');
   println('Программа по переводу матрицы инцидентности графа в матрицу смежности и обратно');
-  for var j: integer:=1 to 14 do
+  for var j: integer:=1 to 14 do // ввод матрицы инцидентности
     for var i: integer:=1 to 7 do
     begin
       print('d [',i,',',j,'] =');
       d[i,j]:=ReadInteger()
     end;
   var k: byte:=1; // номер столбца матрицы инцидентности
-  for var i:Integer:=1 to 7 do
+  for var i:Integer:=1 to 7 do // вычисление матрицы смежности
     for var j:Integer:=1 to 7 do
       for k:=1 to 14 do
-      begin // перевычисление матрицы смежности
+      begin
         if (d[i,k]=2) then // петли
           c[i,i]:=True
         else if (d[i,k]=1) and (d[j,k]=1) and (i<>j) then // рёбра
@@ -39,7 +39,7 @@ begin
   k:=1;
   for var i: integer:=1 to 7 do
     for var j: integer:=1 to 7 do
-    begin // вычисление матрицы инцидентности
+    begin // перевычисление матрицы инцидентности
       if c[i,j] and (i=j) then
       begin // петли
         d[i,k]:=2;
@@ -61,7 +61,7 @@ begin
   for var i: integer:=1 to 7 do
   begin
     for var j: integer:=1 to 14 do
-    begin // печать матрицы инцидентности
+    begin // печать восстановленной матрицы инцидентности
       if d[i,j]>=0 then write(' ');
       print(d[i,j]);
     end;
