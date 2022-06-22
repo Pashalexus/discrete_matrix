@@ -33,8 +33,8 @@ begin
       if c[i,j] and not c[j,i] then
       begin // дуги
         inc(k);
-        d[i,k]:=-1;
-        d[j,k]:=1
+        d[i,k]:=1;
+        d[j,k]:=-1
       end
     end;
   for var i: integer:=1 to n do
@@ -61,7 +61,7 @@ begin
           c[i,j]:=True;
           c[j,i]:=True
         end
-        else if (d[i,k1]=1) and (d[j,k1]=-1) and (i<>j) then // дуги
+        else if (d[i,k1]=-1) and (d[j,k1]=1) and (i<>j) then // дуги
           c[j,i]:=True
       end;
   for var i: integer:=1 to n do // печать восстановленной матрицы смежности
